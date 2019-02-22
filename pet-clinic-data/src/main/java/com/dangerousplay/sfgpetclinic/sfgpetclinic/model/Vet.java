@@ -1,4 +1,4 @@
-package com.dangerousplay.sfgpetclinic.model;
+package com.dangerousplay.sfgpetclinic.sfgpetclinic.model;
 
 /**
  * Criado por Davi Ficanha Henrique em 21/02/2019

@@ -1,4 +1,4 @@
-package com.dangerousplay.sfgpetclinic.model;
+package com.dangerousplay.sfgpetclinic.sfgpetclinic.model;
 
 import java.time.LocalDate;
 
