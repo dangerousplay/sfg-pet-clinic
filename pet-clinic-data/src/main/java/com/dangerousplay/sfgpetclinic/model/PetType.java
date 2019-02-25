@@ -4,7 +4,7 @@ package com.dangerousplay.sfgpetclinic.model;
  * Criado por Davi Ficanha Henrique em 21/02/2019
  */
 
-public class PetType {
+public class PetType extends BaseEntiy {
     private String name;
 
     public String getName() {

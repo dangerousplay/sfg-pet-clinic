@@ -4,7 +4,7 @@ package com.dangerousplay.sfgpetclinic.model;
  * Criado por Davi Ficanha Henrique em 21/02/2019
  */
 
-public class Person {
+public class Person extends BaseEntiy {
 
     private String firstName;
     private String lastName;
