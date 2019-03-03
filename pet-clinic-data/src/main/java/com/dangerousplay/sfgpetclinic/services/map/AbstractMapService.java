@@ -2,11 +2,9 @@ package com.dangerousplay.sfgpetclinic.services.map;
 
 import com.dangerousplay.sfgpetclinic.model.BaseEntiy;
 import com.dangerousplay.sfgpetclinic.services.CrudService;
+import org.springframework.lang.NonNull;
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Criado por Davi Ficanha Henrique em 26/02/2019
@@ -26,8 +24,15 @@ public abstract class AbstractMapService<T extends BaseEntiy, ID extends Long> i
     }
 
     @Override
-    public T save(T object) {
-        map.put(object.getId(), object);
+    public T save(@NonNull T object) {
+        if (object.getId() == null) {
+            Long nextId = getNextId();
+            object.setId(nextId);
+
+            map.put(nextId, object);
+        } else {
+            map.put(object.getId(), object);
+        }
 
         return object;
     }
@@ -40,6 +45,10 @@ public abstract class AbstractMapService<T extends BaseEntiy, ID extends Long> i
     @Override
     public void delete(T object) {
         map.entrySet().removeIf(p -> p.getValue().equals(object));
+    }
+
+    protected Long getNextId() {
+        return map.isEmpty() ? 1L : Collections.max(map.keySet()) + 1;
     }
 
 }
